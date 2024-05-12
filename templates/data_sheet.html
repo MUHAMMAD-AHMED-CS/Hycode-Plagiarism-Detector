@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plagiarism Detector Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container_right">
+            <div class="hycode">
+                <h1 class="hycode_text">
+                    Hycode</h1>
+            </div>
+            <div class="upload_icon">
+
+                <label class="upload_label" for="file-input" id="file-label">
+
+                    <?xml version="1.0" encoding="UTF-8"?> <!--icon-->
+                    <svg class="svg_block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="200px" height="200px" viewBox="0 0 200 200" version="1.1">
+                        <g id="surface1">
+                            <path
+                                style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                d="M 12 9.999844 L 12 20.000156 " transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                            <path
+                                style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                d="M 12 9.999844 L 15.999844 14.000156 "
+                                transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                            <path
+                                style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                d="M 12 9.999844 L 8.000156 14.000156 " transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                            <path
+                                style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                d="M 3.999844 3.999844 L 20.000156 3.999844 "
+                                transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                        </g>
+                    </svg>
+                </label>
+
+            </div>
+
+            <div class="upload_text">
+
+                <label class="upload_text_label" for="file-input" id="file-label">
+                    <input type="file" name="files[]" id="file-input" accept=".java, .cpp, .py" multiple
+                        style="display: none;" />
+
+                    <span onclick="document.getElementById('file-input').click()"> </span> Click
+                    to
+                    Upload Files
+                </label>
+
+            </div>
+
+            <div>
+                <form class="buton_box" action="/compare_code" method="post" enctype="multipart/form-data">
+                    <span class="blue_Button" type="submit">Check Similarity</span>
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="middle_container">
+            <div class="report_containers">
+
+                <div class="similarity_text_box">
+                    <h1 class="similarity_text">
+                        Similarity Report</h1>
+                </div>
+                <table>  <!--  display the data of the content of the similarity  -->
+                    <tr>
+                        <th >File Name</th>
+                        <th >Similar Tokens</th>
+                        <th >Similarity Score</th>
+                        <th >Top Match</th>
+                        <th></th> 
+                    </tr>
+                    <!-- Example Row -->
+                    <tr>
+                        <td >student1.java</td>
+                        <td>51</td>
+                        <td class="similarity-score">95%</td>
+                        <td>student3.java</td>
+                        <td><a href="#" class="view-link">View</a></td>
+                    </tr>
+
+                    <tr>
+                        <td >student1.java</td>
+                        <td>51</td>
+                        <td class="similarity-score">95%</td>
+                        <td>student3.java</td>
+                        <td><a href="#" class="view-link">View</a></td>
+                    </tr>
+
+                    <tr>
+                        <td >student1.java</td>
+                        <td>51</td>
+                        <td class="similarity-score">95%</td>
+                        <td>student3.java</td>
+                        <td><a href="#" class="view-link">View</a></td>
+                    </tr>
+
+                    <tr>
+                        <td >student1.java</td>
+                        <td>51</td>
+                        <td class="similarity-score">95%</td>
+                        <td>student3.java</td>
+                        <td><a href="#" class="view-link">View</a></td>
+                    </tr>
+                    <!-- place the jinga code for the loop -->
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

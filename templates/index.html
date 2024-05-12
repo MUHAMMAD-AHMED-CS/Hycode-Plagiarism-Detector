@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plagiarism Detector Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <div
+            class="container_right">
+                <div class="hycode">
+                    <h1 class="hycode_text">
+                        Hycode</h1>
+                </div>
+                <div class="upload_icon">
+
+                    <label class="upload_label" for="file-input" id="file-label">
+
+                        <?xml version="1.0" encoding="UTF-8"?> <!--icon-->
+                        <svg  class="svg_block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px"
+                            height="200px" viewBox="0 0 200 200" version="1.1">
+                            <g id="surface1">
+                                <path
+                                    style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                    d="M 12 9.999844 L 12 20.000156 " transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                                <path
+                                    style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                    d="M 12 9.999844 L 15.999844 14.000156 "
+                                    transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                                <path
+                                    style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                    d="M 12 9.999844 L 8.000156 14.000156 "
+                                    transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                                <path
+                                    style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(26, 44, 108);stroke-opacity:1;stroke-miterlimit:4;"
+                                    d="M 3.999844 3.999844 L 20.000156 3.999844 "
+                                    transform="matrix(8.333333,0,0,8.333333,0,0)" />
+                            </g>
+                        </svg>
+                    </label>
+
+                </div>
+
+                <div class="upload_text">
+
+                    <label class="upload_text_label" for="file-input" id="file-label">
+                        <input type="file" name="files[]" id="file-input" accept=".java, .cpp, .py" multiple
+                            style="display: none;" />
+
+                        <span  onclick= "document.getElementById('file-input').click()"> </span> Click
+                        to
+                        Upload Files
+                    </label>
+
+                </div>
+
+                <div >
+                    <form class="buton_box" action="/compare_code" method="post" enctype="multipart/form-data">
+                        <button class="blue_Button" type="submit">Check Similarity</button>
+                    </form>
+
+                </div>
+
+            
+
+        </div>
+        <div class="middle_container">
+            <div class="report_containers">
+
+                <div class="similarity_text_box">
+                    <h1
+                        class="similarity_text">
+                        Similarity Report</h1>
+                </div>
+
+                
+
+               
+                <!--  place jinga code for the content of the files  -->
+                <div class="tab">
+                    <button class="tab_button" onclick="openStudent(event, 'Student1')">student_1.java</button>
+                    <button class="tab_button" onclick="openStudent(event, 'Student2')">student_2.java</button>
+                  </div>
+                  
+                  <div id="Student1" class="tabcontent">
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae eaque rem quisquam. Tempora ea earum repellendus debitis est iure odit. Veritatis harum fugit vero. Accusamus, dolore asperiores. Accusamus tempora atque nulla minus perferendis, aperiam fugiat debitis hic pariatur eveniet, voluptas necessitatibus eligendi sint ipsam dolorum dolore unde itaque qui. Inventore a quaerat labore necessitatibus odit voluptas dicta similique, magni ratione optio officia beatae eveniet repellendus pariatur voluptatibus non quam sapiente quasi nam id et facilis. Nisi provident minima aliquid, similique, quo magni rem nam voluptatum, repellendus reprehenderit quae! Magnam eligendi optio animi nulla soluta facilis nobis beatae laboriosam. Rem ullam neque cum consequuntur corrupti eius cumque eveniet mollitia omnis velit molestiae, quod suscipit ipsum, eaque odio possimus quibusdam reiciendis maxime laudantium nostrum ab. Ad aliquam magnam sit dolore ullam sint culpa in dicta. Eum asperiores libero esse inventore quis voluptates ea quasi pariatur, dolorem sit error autem excepturi voluptas assumenda quibusdam est similique tempore obcaecati sequi ut quos eaque doloremque? Adipisci ipsa placeat consequatur ex suscipit consequuntur dicta eius voluptates vitae corporis officia, excepturi beatae. Nobis voluptates, voluptate aliquam consequatur veniam consequuntur mollitia pariatur, quas porro id expedita sint ipsam nihil officia praesentium labore possimus rem facilis ipsum. Nemo, non!</p>
+                  </div>
+                  
+                  <div id="Student2" class="tabcontent">
+                    
+                    <p>this if for</p>
+                  </div>
+                  
+                  <script>
+                  function openStudent(evt, studentName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                      tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                      tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(studentName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                  }
+                  </script>
+
+
+
+                <div
+                    class="text_shared_tokens_div">
+                    <h1 class="shared_token_text"> Shared Tokens: </h1>
+                </div>
+
+
+                <div class="gray_container_shared_box" >
+
+
+
+                    <div class="white_container_shared_box">
+                        {% if result %}
+                        {% if result.error %}
+                        {% else %}
+                        <ul>
+                            {% for key, value in result.shared_tokens.items() %}
+                            <li>{{ key }}: {{ value }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="container_3">
+
+            {% if result %}
+            {% if result.error %}
+
+            <div class="container_3_text">
+                <h2 class="ans_text_heading">Error:</h2>
+            </div>
+                <div
+            class="container_3_text_ans">
+                <p class="ans_text" style="margin-top: 0%;">{{ result.error }}</p>
+                </div>
+            
+
+            {% endif %}
+            {% endif %}
+
+            
+
+            <div
+                class="container_3_text">
+                <h1 class="ans_text_heading"> Similarity </h1>
+            </div>
+
+            <div
+            class="container_3_text_ans">
+            
+                    {% if result %}
+                    {% if result.error %}
+                    {% else %}
+                    {% for key, value in result.word_similarity.items() %}
+                    <span class="ans_text">{{ key }}: {{ value }}</span>
+                    {% endfor %}
+                    {% endif %}
+                    {% else %}
+                    <span class="ans_text">---</span>
+                    {% endif %}
+                
+            </div>
+
+            <div
+            class="container_3_text">
+                <h1 class="ans_text_heading"> Similar tokens </h1>
+            </div>
+
+            <div
+            class="container_3_text_ans">
+            
+                    {% if result %}
+                    {% if result.error %}
+                    {% else %}
+                    {% for key, value in result.token_similarity.items() %}
+                    <span class="ans_text">{{ key }}: {{ value }}</span>
+                    {% endfor %}
+                    {% endif %}
+                    {% else %}
+                    <span class="ans_text">---</span>
+                    {% endif %}
+                
+            </div>
+
+            <div
+            class="container_3_text">
+                <h1 class="ans_text_heading"> Status </h1>
+            </div>
+
+            <div
+            class="container_3_text_ans">
+            
+                    {% if result %}
+                    {% if result.error %}
+                    {% else %}
+                    {% for key, value in result.is_plagiarism.items() %}
+                    <span class="ans_text">{{ key }}: {{ value }}</span>
+                    {% endfor %}
+                    {% endif %}
+                    {% else %}
+                    <span class="ans_text">----</span>
+                    {% endif %}
+                
+            </div>
+            <div >
+                <form style="margin-top: 3rem;" class="buton_box" action="/compare_code" method="post" enctype="multipart/form-data">
+                    <span class="blue_Button" type="submit">View Report</span>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
